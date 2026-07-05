@@ -1,0 +1,123 @@
+/* ===== PAGE NAVIGATION (единый компонент для всех страниц) ===== */
+
+.page-navigation {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 48px;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-button {
+    color: var(--text-gray, #9a9a9a);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--border-color, #262626);
+    border-radius: 8px;
+    padding: 10px 20px;
+    white-space: nowrap;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-button:hover {
+    border-color: var(--red, #dc2626);
+    color: var(--text-white, #f5f5f5);
+}
+
+.nav-button.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ===== PROGRESS ===== */
+.progress {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    padding-top: 8px;
+    cursor: pointer;
+}
+
+.step {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--border-color, #262626);
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+
+.step.done {
+    background: var(--red, #dc2626);
+    border-color: var(--red, #dc2626);
+}
+
+.step.active {
+    width: 30px;
+    height: 30px;
+    background: var(--red, #dc2626);
+    border-color: var(--red, #dc2626);
+    box-shadow: 0 0 0 5px rgba(220,38,38,0.2);
+    margin-top: -8px;
+}
+
+.step-label {
+    font-size: 11px;
+    color: var(--text-gray-dim, #6b6b6b);
+    white-space: nowrap;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.progress-step:has(.step.done) .step-label,
+.progress-step:has(.step.active) .step-label {
+    color: var(--text-white, #f5f5f5);
+    font-weight: 600;
+}
+
+.progress-step:hover .step {
+    transform: scale(1.4);
+    border-color: var(--red, #dc2626);
+    background: var(--red, #dc2626);
+    box-shadow: 0 0 0 5px rgba(220,38,38,0.25);
+}
+
+.progress-step:hover .step-label {
+    color: var(--red, #dc2626);
+    transform: translateY(-2px);
+}
+
+.line {
+    width: 40px;
+    height: 2px;
+    background: var(--border-color, #262626);
+    margin-top: 15px;
+    flex-shrink: 0;
+}
+
+.line.done {
+    background: var(--red, #dc2626);
+}
+
+@media (max-width: 700px) {
+    .progress {
+        display: none;
+    }
+    .page-navigation {
+        justify-content: center;
+        gap: 16px;
+    }
+}
