@@ -114,14 +114,14 @@ body {
     border: 2px solid rgba var(--red);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     .hero-fon {
         opacity: 0.2;
         width: 280px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
     .hero-fon {
         opacity: 0.2;
         width: 160px;
