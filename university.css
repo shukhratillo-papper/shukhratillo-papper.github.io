@@ -108,6 +108,10 @@ body {
     z-index: 0;
     pointer-events: none;
     filter: drop-shadow(0 0 30px rgba(220,38,38,0.1));
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border: 2px solid rgba var(--red);
 }
 
 @media (max-width: 900px) {
@@ -119,7 +123,8 @@ body {
 
 @media (max-width: 600px) {
     .hero-fon {
-        display: none;
+        opacity: 0.2;
+        width: 160px;
     }
 }
 
