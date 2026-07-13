@@ -78,7 +78,6 @@
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    status.textContent = 'Отправка...';
 
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
@@ -97,8 +96,23 @@
       const data = await response.json();
 
       if (data.success) {
-        status.textContent = 'Сообщение отправлено! Спасибо.';
-        form.reset();
+        form.style.opacity = '0';
+        form.style.transform = 'translateY(-10px)';
+
+        setTimeout(function () {
+          form.style.display = 'none';
+
+          const successBlock = document.createElement('div');
+          successBlock.className = 'success-message';
+          successBlock.innerHTML = '<div class="success-icon">✓</div><h3>Спасибо, вы записаны!</h3><p>Я свяжусь с вами в ближайшее время.</p>';
+
+          form.parentNode.insertBefore(successBlock, form.nextSibling);
+
+          setTimeout(function () {
+            successBlock.style.opacity = '1';
+            successBlock.style.transform = 'translateY(0)';
+          }, 50);
+        }, 400);
       } else {
         status.textContent = 'Ошибка: ' + data.error;
       }
