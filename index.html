@@ -37,9 +37,82 @@
         <p class="tagline">Не просто студент. Человек который превращяет знания в результат</p>
     </div>
 
+<section id="contact-form">
+  <h2>Свяжитесь со мной</h2>
+  <p class="contact-subtitle">Если у вас есть идея, вопрос или предложение — буду рад пообщаться.</p>
+
+  <form id="contactForm">
+    <div class="input-group">
+      <span class="icon">👤</span>
+      <input type="text" id="name" placeholder="Имя" required />
+    </div>
+
+    <div class="input-group">
+      <span class="icon">📞</span>
+      <input type="text" id="phone" placeholder="Телефон" />
+    </div>
+
+    <div class="input-group">
+      <span class="icon">📧</span>
+      <input type="email" id="gmail" placeholder="Gmail" />
+    </div>
+
+    <div class="input-group textarea-group">
+      <span class="icon">💬</span>
+      <textarea id="message" placeholder="Сообщение" required></textarea>
+    </div>
+
+    <button type="submit">Отправить сообщение</button>
+  </form>
+
+  <p id="formStatus"></p>
+
+  <div class="contact-footer">
+    ⚡ Быстрый ответ &nbsp;•&nbsp; Честный подход &nbsp;•&nbsp; Качественный результат
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    status.textContent = 'Отправка...';
+
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const gmail = document.getElementById('gmail').value;
+    const message = document.getElementById('message').value;
+
+    const contact = phone && gmail ? phone + ' / ' + gmail : (phone || gmail);
+
+    try {
+      const response = await fetch('https://shukhratillo-papper-github-io.vercel.app/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email: contact, message }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        status.textContent = 'Сообщение отправлено! Спасибо.';
+        form.reset();
+      } else {
+        status.textContent = 'Ошибка: ' + data.error;
+      }
+    } catch (error) {
+      status.textContent = 'Ошибка отправки. Попробуйте позже.';
+    }
+  });
+</script>
      
 
 </section>
+
+
+
 
 </body>
 </html>

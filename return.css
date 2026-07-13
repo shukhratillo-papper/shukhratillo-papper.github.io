@@ -260,3 +260,89 @@ html{
 }
 
 
+
+#contact-form {
+  max-width: 500px;
+  padding: 40px 20px;
+}
+
+#contact-form h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  color: #aaa;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  transition: border-color 0.2s;
+}
+
+.input-group:focus-within {
+  border-color: #e63946;
+}
+
+.input-group .icon {
+  margin-right: 12px;
+  opacity: 0.7;
+}
+
+.input-group input,
+.input-group textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 100%;
+  font-size: 15px;
+}
+
+.textarea-group {
+  align-items: flex-start;
+}
+
+.textarea-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+#contact-form button {
+  width: 100%;
+  background: transparent;
+  color: #e63946;
+  border: 1px solid #e63946;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+#contact-form button:hover {
+  background: #e63946;
+  color: #fff;
+}
+
+.contact-footer {
+  margin-top: 20px;
+  color: #888;
+  font-size: 13px;
+}
+
+#formStatus {
+  margin-top: 15px;
+  color: #e63946;
+}
+
+
